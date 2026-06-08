@@ -141,4 +141,4 @@ if($forumData['forum_area'] == 3 && !$opt['opt5']) $alliance->redirect($_GET);
 
 
 <p class="btn"><input type="image" id="fbtn_ok" value="ok" name="s1" class="dynamic_img" src="img/x.gif" alt="OK" /></form></p>
-<span style="color: #DD0000"><b><?php echo TZ_WARNING; ?></b> <?php echo TZ_YOU_CAN_T_USE_THE_VALUES; ?> <b>[message]</b> <?php echo OR; ?> <b>[/message]</b> <?php echo TZ_IN_YOUR_POST_BECAUSE_IT_CAN_CAUSE; ?></span>
+<span style="color: #DD0000"><b><?php echo TZ_WARNING; ?></b> <?php echo TZ_YOU_CAN_T_USE_THE_VALUES; ?> <b>[message]</b> <?php echo constant('OR'); ?> <b>[/message]</b> <?php echo TZ_IN_YOUR_POST_BECAUSE_IT_CAN_CAUSE; ?></span>

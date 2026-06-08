@@ -31,7 +31,7 @@ Romans: Can build/extend a resource field and a village building at the same tim
 
     <br>
 
-    <b><?php echo COSTS; ?></b> <?php echo AND; ?> <b>construction time</b> for level 1:    <br>
+    <b><?php echo COSTS; ?></b> <?php echo constant('AND'); ?> <b>construction time</b> for level 1:    <br>
 
     <img src=img/un/res/1.gif width=18 height=12 alt=Lumber " title="
 
@@ -73,7 +73,7 @@ The resources lumber, clay and iron are stored in your warehouse. By increasing 
 
     <br>
 
-    <b><?php echo COSTS; ?></b> <?php echo AND; ?> <b>construction time</b> for level 1:    <br>
+    <b><?php echo COSTS; ?></b> <?php echo constant('AND'); ?> <b>construction time</b> for level 1:    <br>
 
     <img src=img/un/res/1.gif width=18 height=12 alt=Lumber " title="
 
@@ -115,7 +115,7 @@ The crop produced by your farms is stored in the granary. By increasing its leve
 
     <br>
 
-    <b><?php echo COSTS; ?></b> <?php echo AND; ?> <b>construction time</b> for level 1:    <br>
+    <b><?php echo COSTS; ?></b> <?php echo constant('AND'); ?> <b>construction time</b> for level 1:    <br>
 
     <img src=img/un/res/1.gif width=18 height=12 alt=Lumber " title="
 
@@ -165,7 +165,7 @@ Teutons: Enemy crannies only hides 66% of the normal amount in Travian version 2
 
     <br>
 
-    <b><?php echo COSTS; ?></b> <?php echo AND; ?> <b>construction time</b> for level 1:    <br>
+    <b><?php echo COSTS; ?></b> <?php echo constant('AND'); ?> <b>construction time</b> for level 1:    <br>
 
     <img src=img/un/res/1.gif width=18 height=12 alt=Lumber " title="
 
@@ -207,7 +207,7 @@ In order to join an alliance you need an embassy. With an embassy level 3 you ca
 
     <br>
 
-    <b><?php echo COSTS; ?></b> <?php echo AND; ?> <b>construction time</b> for level 1:    <br>
+    <b><?php echo COSTS; ?></b> <?php echo constant('AND'); ?> <b>construction time</b> for level 1:    <br>
 
     <img src=img/un/res/1.gif width=18 height=12 alt=Lumber " title="
 
@@ -249,7 +249,7 @@ At the rally point you can instruct your troops and can see the sender of oncomi
 
     <br>
 
-    <b><?php echo COSTS; ?></b> <?php echo AND; ?> <b>construction time</b> for level 1:    <br>
+    <b><?php echo COSTS; ?></b> <?php echo constant('AND'); ?> <b>construction time</b> for level 1:    <br>
 
     <img src=img/un/res/1.gif width=18 height=12 alt=Lumber " title="
 
@@ -307,7 +307,7 @@ Velocity: 24 fields/hour.    <br>
 
     <br>
 
-    <b><?php echo COSTS; ?></b> <?php echo AND; ?> <b>construction time</b> for level 1:    <br>
+    <b><?php echo COSTS; ?></b> <?php echo constant('AND'); ?> <b>construction time</b> for level 1:    <br>
 
     <img src=img/un/res/1.gif width=18 height=12 alt=Lumber " title="
 
@@ -349,7 +349,7 @@ Infantry can be trained in the barracks. The higher its level the faster the tro
 
     <br>
 
-    <b><?php echo COSTS; ?></b> <?php echo AND; ?> <b>construction time</b> for level 1:    <br>
+    <b><?php echo COSTS; ?></b> <?php echo constant('AND'); ?> <b>construction time</b> for level 1:    <br>
 
     <img src=img/un/res/1.gif width=18 height=12 alt=Lumber " title="
 
@@ -391,7 +391,7 @@ Cavalry is trained in the stable. The higher its level the faster the troops are
 
     <br>
 
-    <b><?php echo COSTS; ?></b> <?php echo AND; ?> <b>construction time</b> for level 1:    <br>
+    <b><?php echo COSTS; ?></b> <?php echo constant('AND'); ?> <b>construction time</b> for level 1:    <br>
 
     <img src=img/un/res/1.gif width=18 height=12 alt=Lumber " title="
 
@@ -433,7 +433,7 @@ Siege engines like catapults and rams can be built in the workshop. The higher i
 
     <br>
 
-    <b><?php echo COSTS; ?></b> <?php echo AND; ?> <b>construction time</b> for level 1:    <br>
+    <b><?php echo COSTS; ?></b> <?php echo constant('AND'); ?> <b>construction time</b> for level 1:    <br>
 
     <img src=img/un/res/1.gif width=18 height=12 alt=Lumber " title="
 
@@ -475,7 +475,7 @@ New unit types can be developed in the academy. By increasing its level you can 
 
     <br>
 
-    <b><?php echo COSTS; ?></b> <?php echo AND; ?> <b>construction time</b> for level 1:    <br>
+    <b><?php echo COSTS; ?></b> <?php echo constant('AND'); ?> <b>construction time</b> for level 1:    <br>
 
     <img src=img/un/res/1.gif width=18 height=12 alt=Lumber " title="
 
@@ -517,7 +517,7 @@ Your warriors' weapons are enhanced in the blacksmith?s melting furnaces. By inc
 
     <br>
 
-    <b><?php echo COSTS; ?></b> <?php echo AND; ?> <b>construction time</b> for level 1:    <br>
+    <b><?php echo COSTS; ?></b> <?php echo constant('AND'); ?> <b>construction time</b> for level 1:    <br>
 
     <img src=img/un/res/1.gif width=18 height=12 alt=Lumber " title="
 
@@ -559,7 +559,7 @@ Your warriors' armour is enhanced in the armoury's melting furnaces. By increasi
 
     <br>
 
-    <b><?php echo COSTS; ?></b> <?php echo AND; ?> <b>construction time</b> for level 1:    <br>
+    <b><?php echo COSTS; ?></b> <?php echo constant('AND'); ?> <b>construction time</b> for level 1:    <br>
 
     <img src=img/un/res/1.gif width=18 height=12 alt=Lumber " title="
 
@@ -609,7 +609,7 @@ The Capital is the only place a stonemason's lodge can be erected. Also the capi
 
     <br>
 
-    <b><?php echo COSTS; ?></b> <?php echo AND; ?> <b>construction time</b> for level 1:    <br>
+    <b><?php echo COSTS; ?></b> <?php echo constant('AND'); ?> <b>construction time</b> for level 1:    <br>
 
     <img src=img/un/res/1.gif width=18 height=12 alt=Lumber " title="
 
@@ -655,7 +655,7 @@ At level 10 and 20 three settlers or one administrator (Senator, Chief or Chieft
 
     <br>
 
-    <b><?php echo COSTS; ?></b> <?php echo AND; ?> <b>construction time</b> for level 1:    <br>
+    <b><?php echo COSTS; ?></b> <?php echo constant('AND'); ?> <b>construction time</b> for level 1:    <br>
 
     <img src=img/un/res/1.gif width=18 height=12 alt=Lumber " title="
 
@@ -707,7 +707,7 @@ Romans: In Travian version 3.5 the Roman trade office increases the capacity by 
 
     <br>
 
-    <b><?php echo COSTS; ?></b> <?php echo AND; ?> <b>construction time</b> for level 1:    <br>
+    <b><?php echo COSTS; ?></b> <?php echo constant('AND'); ?> <b>construction time</b> for level 1:    <br>
 
     <img src=img/un/res/1.gif width=18 height=12 alt=Lumber " title="
 
@@ -749,7 +749,7 @@ Your troops can train to increase their stamina at the tournament square. The fu
 
     <br>
 
-    <b><?php echo COSTS; ?></b> <?php echo AND; ?> <b>construction time</b> for level 1:    <br>
+    <b><?php echo COSTS; ?></b> <?php echo constant('AND'); ?> <b>construction time</b> for level 1:    <br>
 
     <img src=img/un/res/1.gif width=18 height=12 alt=Lumber " title="
 

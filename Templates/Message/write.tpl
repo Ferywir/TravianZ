@@ -271,7 +271,7 @@ for ($i = 0; $i < 20; $i++) {
 <br />
 
 <span style="color: #DD0000">
-<b><?php echo TZ_WARNING; ?></b> <?php echo TZ_YOU_CAN_T_USE_THE_VALUES; ?> <b>[message]</b> <?php echo OR; ?> <b>[/message]</b>
+<b><?php echo TZ_WARNING; ?></b> <?php echo TZ_YOU_CAN_T_USE_THE_VALUES; ?> <b>[message]</b> <?php echo constant('OR'); ?> <b>[/message]</b>
 </span>
 
 </div>

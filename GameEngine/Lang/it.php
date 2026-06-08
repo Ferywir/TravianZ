@@ -2180,4 +2180,6 @@ define('TZ_ML_MATERIAL_UNDERAGE', 'La pubblicazione o la trasmissione di qualsia
 // ===== i18n reliquat final =====
 define('TZ_NO_BEGINNER_PROT2', 'Nessuna protezione principianti');
 define('TZ_SERVER_RUNNING_ON', '▶ Server attivo su');
+
+define('OR', 'o');
 ?>

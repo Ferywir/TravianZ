@@ -54,7 +54,7 @@ if (isset($_GET['z'])) {
                     Normal attack
                 </label>
             </td>
-            <td class="or"><?php echo OR; ?></td>
+            <td class="or"><?php echo constant('OR'); ?></td>
         </tr>
         <tr>
             <td class="sel">
