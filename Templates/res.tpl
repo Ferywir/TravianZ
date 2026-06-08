@@ -126,13 +126,13 @@ if (!empty($village)) {
             <!-- Gold display -->
             <td>
                 <?php
-                if ($session-><?php echo GOLD; ?> <= 1) {
+                if ($session->gold <= 1) {
                     echo '<font color="#B3B3B3">
-                            <img src="' . GP_LOCATE . 'img/a/gold_g.gif" alt="<?php echo GOLD; ?>" title="<?php echo GOLD; ?>"/>
+                            <img src="' . GP_LOCATE . 'img/a/gold_g.gif" alt="Gold" title="Gold"/>
                             ' . $session->gold . ' Gold
                           </font>';
                 } else {
-                    echo '<img src="' . GP_LOCATE . 'img/a/gold.gif" alt="<?php echo GOLD; ?>" title="<?php echo GOLD; ?>"/>
+                    echo '<img src="' . GP_LOCATE . 'img/a/gold.gif" alt="Gold" title="Gold"/>
                           ' . $session->gold . ' Gold';
                 }
                 ?>
