@@ -63,7 +63,7 @@ $queryBase = (!empty($_GET['t'])) ? 't='.$_GET['t'].'&amp;' : '';
 <tr>
     <th colspan="2">Subject:</th>
     <th class="sent">
-        <a href="berichte.php?o=1<?php echo (!empty($_GET['t']) ? '&amp;t='.$_GET['t'] : ''); ?>">Sent</a>
+        <a href="berichte.php?o=1<?php echo (!empty($_GET['t']) ? '&amp;t='.$_GET['t'] : ''); ?>"><?php echo SENT; ?></a>
     </th>
 </tr>
 </thead>
@@ -84,15 +84,15 @@ $queryBase = (!empty($_GET['t'])) ? 't='.$_GET['t'].'&amp;' : '';
 <th class="buttons">
 
     <input name="del" type="image" id="btn_delete" class="dynamic_img"
-           src="img/x.gif" value="delete" alt="delete" />
+           src="img/x.gif" value="delete" alt="<?php echo DELETE; ?>" />
 
     <?php if ($session->plus) { ?>
 
         <?php if (isset($_GET['t']) && $_GET['t'] == 5) { ?>
-            <input name="start" type="image" value="back" alt="back"
+            <input name="start" type="image" value="back" alt="<?php echo BACK; ?>"
                    id="btn_back" class="dynamic_img" src="img/x.gif" />
         <?php } else { ?>
-            <input name="archive" type="image" value="Archive" alt="Archive"
+            <input name="archive" type="image" value="Archive" alt="<?php echo ARCHIVE; ?>"
                    id="btn_archiv" class="dynamic_img" src="img/x.gif" />
         <?php } ?>
 

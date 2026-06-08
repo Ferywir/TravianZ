@@ -32,7 +32,7 @@ if (!empty($_REQUEST['demolish']) && $_REQUEST['c'] == $session->mchecker) {
 
         if($instant){
             // DEMOLARE COMPLETA CU GOLD
-            if($session->gold < 10){
+            if($session-><?php echo GOLD; ?> < 10){
                 header("Location: build.php?gid=15&ty=$type&notenoughgold=1");
                 exit;
             }
@@ -72,13 +72,13 @@ $inProgress =!empty($Demolition)? $Demolition[0] : null;
 <?php if ($inProgress):?>
     <b>
         <a href="build.php?id=<?= $_GET['id']?? 15?>&ty=<?= $ty?>&cancel=1">
-            <img src="img/x.gif" class="del" title="<?= CANCEL?>" alt="cancel">
+            <img src="img/x.gif" class="del" title="<?= CANCEL?>" alt="<?php echo CANCEL; ?>">
         </a>
         <?= DEMOLITION_OF?> <?= $building->procResType($VillageLevels['f'.$inProgress['buildnumber'].'t'])?>:
         <span id="timer1"><?= $generator->getTimeFormat($inProgress['timetofinish'] - time())?></span>
         <?php if ($session->gold >= 2):?>
             <a href="?id=15&buildingFinish=1&ty=<?= $ty?>" onclick="return confirm('Finish all construction and research orders in this village immediately for 2 Gold?');" title="<?= FINISH_GOLD?>">
-                <img class="clock" alt="Finish" src="img/x.gif">
+                <img class="clock" alt="<?php echo TZ_FINISH; ?>" src="img/x.gif">
             </a>
         <?php endif;?>
     </b>
@@ -87,15 +87,14 @@ $inProgress =!empty($Demolition)? $Demolition[0] : null;
 
     <?php if (isset($_GET['nodemolish']) && $_GET['nodemolish'] == 18):?>
         <p style="color:#ff0000; text-align:left">
-            Because you are the leader of your alliance, demolition of your current Embassy cannot be started,
-            since it still holds all of your <b><?= $memberCount?></b> alliance members.
+            <?php echo TZ_ML_LEADER_DEMOLITION_EMBASSY; ?> <b><?= $memberCount?></b> <?php echo TZ_ALLIANCE_MEMBERS; ?>
         </p>
     <?php endif;?>
     <?php if (isset($_GET['notenoughgold'])):?>
-        <p style="color:#ff0000">You don't have enough gold. You need 10 gold for instant demolition.</p>
+        <p style="color:#ff0000"><?php echo TZ_YOU_DON_T_HAVE_ENOUGH_GOLD_YOU_NEE; ?></p>
     <?php endif;?>
     <?php if (isset($_GET['demolished'])):?>
-        <p style="color:#008000">The building was completely demolished for 10 gold!</p>
+        <p style="color:#008000"><?php echo TZ_THE_BUILDING_WAS_COMPLETELY_DEMOLI; ?></p>
     <?php endif;?>
 
     <form action="build.php?gid=15&amp;demolish=1&amp;cancel=0&amp;c=<?= $session->mchecker?>" method="POST" style="display:inline">
@@ -115,11 +114,11 @@ $inProgress =!empty($Demolition)? $Demolition[0] : null;
         </select>
 
         <label style="margin:0 10px;">
-            <input type="checkbox" name="instant" value="1" id="instant_demolish" <?= $session->gold < 10 ? 'disabled' : ''?>>
-            Complete demolition (10 <img src="img/x.gif" class="gold" style="vertical-align:middle">)
+            <input type="checkbox" name="instant" value="1" id="instant_demolish" <?= $session-><?php echo GOLD; ?> < 10 ? 'disabled' : ''?>>
+            <?php echo TZ_COMPLETE_DEMOLITION_10; ?> <img src="img/x.gif" class="gold" style="vertical-align:middle">)
         </label>
 
-        <input id="btn_demolish" name="demolish" class="dynamic_img" value="Demolish" type="image" src="img/x.gif" alt="Demolish" title="<?= DEMOLISH?>" onclick="return verify_demolition();">
+        <input id="btn_demolish" name="demolish" class="dynamic_img" value="Demolish" type="image" src="img/x.gif" alt="<?php echo DEMOLISH; ?>" title="<?= DEMOLISH?>" onclick="return verify_demolition();">
     </form>
 <?php endif;?>
 
