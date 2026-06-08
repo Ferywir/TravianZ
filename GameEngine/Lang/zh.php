@@ -2281,3 +2281,11 @@ define('TZ_ML_MATERIAL_UNDERAGE', '发布或传播任何不适合未成年人的
 // ===== i18n reliquat final =====
 define('TZ_NO_BEGINNER_PROT2', '无新手保护');
 define('TZ_SERVER_RUNNING_ON', '▶ 服务器运行于');
+
+// ===== task A: re-wired reverted templates =====
+define('TZ_HERO', "英雄");
+define('TZ_SEND_UNITS_BACK_TO', "将部队遣返至");
+define('TZ_CONFIRM_DEMOLISH_COMPLETE_1', "你确定要彻底拆除 ");
+define('TZ_CONFIRM_DEMOLISH_COMPLETE_2', " 吗？需花费 10 金币。\n该建筑将瞬间消失，且无法撤销。");
+define('TZ_CONFIRM_LAST_EMBASSY_L3', "警告！\n\n你即将拆除最后一座 3 级大使馆！\n\n由于你是联盟领袖且没有其他成员，拆除完成后联盟将被解散。");
+define('TZ_CONFIRM_LAST_EMBASSY_L1', "警告！\n\n你即将拆除你最后一座大使馆！\n\n由于你身处联盟中，拆除完成后你将自动退出该联盟。");

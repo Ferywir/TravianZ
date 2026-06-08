@@ -2288,3 +2288,11 @@ define('TZ_ML_MATERIAL_UNDERAGE', 'Postarea sau transmiterea oricărui material 
 // ===== i18n reliquat final =====
 define('TZ_NO_BEGINNER_PROT2', 'Fără protecție pentru începători');
 define('TZ_SERVER_RUNNING_ON', '▶ Server activ pe');
+
+// ===== task A: re-wired reverted templates =====
+define('TZ_HERO', "Erou");
+define('TZ_SEND_UNITS_BACK_TO', "Trimite trupele înapoi la");
+define('TZ_CONFIRM_DEMOLISH_COMPLETE_1', "Sigur vrei să demolezi COMPLET ");
+define('TZ_CONFIRM_DEMOLISH_COMPLETE_2', " pentru 10 AUR?\nClădirea va dispărea instantaneu, acțiunea nu poate fi anulată.");
+define('TZ_CONFIRM_LAST_EMBASSY_L3', "ATENȚIE!\n\nEști pe cale să demolezi ultima Ambasadă de nivel 3!\n\nDeoarece ești liderul alianței și nu mai există alți membri, alianța va fi desființată după finalizarea demolării.");
+define('TZ_CONFIRM_LAST_EMBASSY_L1', "ATENȚIE!\n\nEști pe cale să demolezi ultima ta Ambasadă!\n\nDeoarece faci parte dintr-o alianță, vei părăsi automat acea alianță după finalizarea demolării.");

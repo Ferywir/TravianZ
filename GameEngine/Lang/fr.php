@@ -2297,4 +2297,13 @@ define('TZ_ML_MATERIAL_UNDERAGE', 'La publication ou la transmission de tout con
 // ===== i18n reliquat final =====
 define('TZ_NO_BEGINNER_PROT2', 'Pas de protection débutant');
 define('TZ_SERVER_RUNNING_ON', '▶ Serveur actif sur');
+
+// ===== task A: re-wired reverted templates =====
+define('TZ_HERO', "Héros");
+define('TZ_SEND_UNITS_BACK_TO', "Renvoyer les troupes vers");
+define('TZ_CONFIRM_DEMOLISH_COMPLETE_1', "Voulez-vous vraiment démolir COMPLÈTEMENT ");
+define('TZ_CONFIRM_DEMOLISH_COMPLETE_2', " pour 10 ORS ?\nLe bâtiment disparaîtra instantanément, c'est irréversible.");
+define('TZ_CONFIRM_LAST_EMBASSY_L3', "ATTENTION !\n\nVous êtes sur le point de démolir la dernière ambassade de niveau 3 !\n\nComme vous êtes le chef de votre alliance et qu'il ne reste aucun autre membre, l'alliance sera dissoute une fois la démolition terminée.");
+define('TZ_CONFIRM_LAST_EMBASSY_L1', "ATTENTION !\n\nVous êtes sur le point de démolir votre dernière ambassade !\n\nComme vous êtes dans une alliance, vous la quitterez automatiquement une fois la démolition terminée.");
+
 ?>

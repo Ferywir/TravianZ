@@ -2182,4 +2182,13 @@ define('TZ_NO_BEGINNER_PROT2', 'Nessuna protezione principianti');
 define('TZ_SERVER_RUNNING_ON', '▶ Server attivo su');
 
 define('OR', 'o');
+
+// ===== task A: re-wired reverted templates =====
+define('TZ_HERO', "Eroe");
+define('TZ_SEND_UNITS_BACK_TO', "Rimanda le truppe a");
+define('TZ_CONFIRM_DEMOLISH_COMPLETE_1', "Vuoi davvero demolire COMPLETAMENTE ");
+define('TZ_CONFIRM_DEMOLISH_COMPLETE_2', " per 10 ORO?\nL'edificio scomparirà istantaneamente, non può essere annullato.");
+define('TZ_CONFIRM_LAST_EMBASSY_L3', "ATTENZIONE!\n\nStai per demolire l'ultima Ambasciata di livello 3!\n\nPoiché sei il leader della tua alleanza e non restano altri membri, l'alleanza verrà sciolta al termine della demolizione.");
+define('TZ_CONFIRM_LAST_EMBASSY_L1', "ATTENZIONE!\n\nStai per demolire la tua ultima Ambasciata!\n\nPoiché fai parte di un'alleanza, la lascerai automaticamente al termine della demolizione.");
+
 ?>

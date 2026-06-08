@@ -2294,3 +2294,11 @@ tz_def('TZ_ML_MATERIAL_UNDERAGE', 'Posting or transmission of any material not s
 // ===== i18n reliquat final =====
 tz_def('TZ_NO_BEGINNER_PROT2', 'No beginner’s protection');
 tz_def('TZ_SERVER_RUNNING_ON', '▶ Server running on');
+
+// ===== task A: re-wired reverted templates =====
+tz_def('TZ_HERO', "Hero");
+tz_def('TZ_SEND_UNITS_BACK_TO', "Send units back to");
+tz_def('TZ_CONFIRM_DEMOLISH_COMPLETE_1', "Surely you want to demolish COMPLETELY ");
+tz_def('TZ_CONFIRM_DEMOLISH_COMPLETE_2', " for 10 GOLD?\nThe building will disappear instantly, it cannot be undone.");
+tz_def('TZ_CONFIRM_LAST_EMBASSY_L3', "WARNING!\n\nYou are about to demolish the last lvl3 Embassy!\n\nSince you are the leader of your alliance and because there are no additional members left, the alliance will be disbanded once the demolition completes.");
+tz_def('TZ_CONFIRM_LAST_EMBASSY_L1', "WARNING!\n\nYou are about to demolish your last Embassy!\n\nSince you are in an alliance, you will automatically quit that alliance once the demolition completes.");
