@@ -110,7 +110,7 @@ maxlength="35" tabindex="2" />
 					<a href="javascript:void(0);" bbType="d" bbTag="u" ><div title="<?php echo TZ_UNDERLINE; ?>" alt="<?php echo TZ_UNDERLINE; ?>" class="bbButton bbUnderscore"></div></a>
 					<a href="javascript:void(0);" bbType="d" bbTag="alliance0" ><div title="<?php echo ALLIANCE; ?>" alt="<?php echo ALLIANCE; ?>" class="bbButton bbAlliance"></div></a>
 					<a href="javascript:void(0);" bbType="d" bbTag="player0" ><div title="<?php echo PLAYER; ?>" alt="<?php echo PLAYER; ?>" class="bbButton bbPlayer"></div></a>
-					<a href="javascript:void(0);" bbType="d" bbTag="coor0" ><div title="<?php echo COORDINATES; ?>" alt="<?php echo COORDINATES; ?>" class="bbButton bbCoordinate" onclick="this.form.submit(); window.location.href = '?t=1&coor=<?php echo $coor+1; ?>';"></div></a>
+					<a href="javascript:void(0);" bbType="d" bbTag="coor0" ><div title="<?php echo COORDINATES; ?>" alt="<?php echo COORDINATES; ?>" class="bbButton bbCoordinate" onclick="this.form.submit(); window.location.href = '?t=1&coor=<?php echo ($coor ?? 0)+1; ?>';"></div></a>
 					<a href="javascript:void(0);" bbType="d" bbTag="report0" ><div title="<?php echo REPORT; ?>" alt="<?php echo REPORT; ?>" class="bbButton bbReport"></div></a>
 					<a href="javascript:void(0);" bbWin="resources" id="message_resourceButton"><div title="<?php echo RESOURCES; ?>" alt="<?php echo RESOURCES; ?>" class="bbButton bbResource"></div></a>
 					<a href="javascript:void(0);" bbWin="smilies" id="message_smilieButton"><div title="<?php echo TZ_SMILIES_2; ?>" alt="<?php echo TZ_SMILIES_2; ?>" class="bbButton bbSmilie"></div></a>
