@@ -75,7 +75,7 @@ if ($database->isVillageOases($dataarray[29])) {
 <thead>
 <tr>
     <th><?php echo SUBJECT; ?>:</th>
-    <th><?php echo $message->readingNotice['topic']; ?></th>
+    <th><?php echo tz_loc_topic($message->readingNotice['topic']); ?></th>
 </tr>
 <tr>
     <?php $date = $generator->procMtime($message->readingNotice['time']); ?>

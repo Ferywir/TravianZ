@@ -42,7 +42,7 @@ if ($type == 1) {
 
 <tr>
     <th><?php echo SUBJECT; ?>:</th>
-    <th><?php echo $message->readingNotice['topic']; ?></th>
+    <th><?php echo tz_loc_topic($message->readingNotice['topic']); ?></th>
 </tr>
 
 <tr>

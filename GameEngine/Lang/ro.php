@@ -2316,3 +2316,13 @@ define('TZ_RPT_WON_SCOUT_ATK', "Spionaj reușit ca atacator");
 define('TZ_RPT_LOST_SCOUT_ATK', "Spionaj eșuat ca atacator");
 define('TZ_RPT_WON_SCOUT_DEF', "Spionaj reușit ca apărător");
 define('TZ_RPT_LOST_SCOUT_DEF', "Spionaj eșuat ca apărător");
+
+// ===== report topic connectors (display-time localization) =====
+define('TZ_RT_ATTACKS', "atacă");
+define('TZ_RT_REINFORCEMENT', "întărește");
+define('TZ_RT_SCOUTS', "cercetează");
+define('TZ_RT_SEND_RES_TO', "trimite resurse către");
+define('TZ_RT_WAS_ATTACKED', "a fost atacat");
+define('TZ_RT_REINF_IN', "Întărire în");
+define('TZ_RT_ELDERS_REINF', "întărire a satului bătrânilor");
+define('TZ_RT_UNOCC_OASIS', "Oază neocupată");

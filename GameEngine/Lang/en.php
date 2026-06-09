@@ -2322,3 +2322,35 @@ tz_def('TZ_RPT_WON_SCOUT_ATK', "Won scouting as attacker");
 tz_def('TZ_RPT_LOST_SCOUT_ATK', "Lost scouting as attacker");
 tz_def('TZ_RPT_WON_SCOUT_DEF', "Won scouting as defender");
 tz_def('TZ_RPT_LOST_SCOUT_DEF', "Lost scouting as defender");
+
+// ===== report topic connectors (display-time localization) =====
+tz_def('TZ_RT_ATTACKS', "attacks");
+tz_def('TZ_RT_REINFORCEMENT', "reinforcement");
+tz_def('TZ_RT_SCOUTS', "scouts");
+tz_def('TZ_RT_SEND_RES_TO', "send resources to");
+tz_def('TZ_RT_WAS_ATTACKED', "was attacked");
+tz_def('TZ_RT_REINF_IN', "Reinforcement in");
+tz_def('TZ_RT_ELDERS_REINF', "village of the elders reinforcement");
+tz_def('TZ_RT_UNOCC_OASIS', "Unoccupied Oasis");
+
+// ===== display-time localization of stored report topics =====
+// Reports are generated server-side at battle resolution and stored in the DB
+// (column `topic`) with English connectors. This rewrites them to the viewing
+// player's language at display time (works for old AND new reports).
+if (!function_exists('tz_loc_topic')) {
+    function tz_loc_topic($s) {
+        if (!is_string($s) || $s === '') return $s;
+        // strtr does longest-match, single-pass (no double substitution).
+        $map = array(
+            'village of the elders reinforcement ' => TZ_RT_ELDERS_REINF.' ',
+            'Reinforcement in '                    => TZ_RT_REINF_IN.' ',
+            ' was attacked'                        => ' '.TZ_RT_WAS_ATTACKED,
+            ' send resources to '                  => ' '.TZ_RT_SEND_RES_TO.' ',
+            ' scouts '                             => ' '.TZ_RT_SCOUTS.' ',
+            ' attacks '                            => ' '.TZ_RT_ATTACKS.' ',
+            ' reinforcement '                      => ' '.TZ_RT_REINFORCEMENT.' ',
+            'Unoccupied Oasis'                     => TZ_RT_UNOCC_OASIS,
+        );
+        return strtr($s, $map);
+    }
+}

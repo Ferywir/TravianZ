@@ -2213,4 +2213,15 @@ define('TZ_RPT_WON_SCOUT_DEF', "Spionaggio riuscito come difensore");
 define('TZ_RPT_LOST_SCOUT_DEF', "Spionaggio fallito come difensore");
 
 define('NO_REPORTS', "Non ci sono rapporti disponibili");
+
+// ===== report topic connectors (display-time localization) =====
+define('TZ_RT_ATTACKS', "attacca");
+define('TZ_RT_REINFORCEMENT', "rinforza");
+define('TZ_RT_SCOUTS', "spia");
+define('TZ_RT_SEND_RES_TO', "invia risorse a");
+define('TZ_RT_WAS_ATTACKED', "è stato attaccato");
+define('TZ_RT_REINF_IN', "Rinforzo in");
+define('TZ_RT_ELDERS_REINF', "rinforzo del villaggio degli anziani");
+define('TZ_RT_UNOCC_OASIS', "Oasi non occupata");
+
 ?>

@@ -187,7 +187,7 @@ for ($i = (1 + $s); $i <= (10 + $s); $i++) {
 
         // ================= SUBJECT =================
         echo "<div>
-                <a href=\"berichte.php?id=".$row['id']."\">".$row['topic']."</a>";
+                <a href=\"berichte.php?id=".$row['id']."\">".tz_loc_topic($row['topic'])."</a>";
 
         if ($row['viewed'] == 0) {
             echo " (new)";

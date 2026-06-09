@@ -2327,4 +2327,15 @@ define('TZ_RPT_LOST_SCOUT_ATK', "Espionnage échoué en attaquant");
 define('TZ_RPT_WON_SCOUT_DEF', "Espionnage réussi en défendant");
 define('TZ_RPT_LOST_SCOUT_DEF', "Espionnage échoué en défendant");
 
+
+// ===== report topic connectors (display-time localization) =====
+define('TZ_RT_ATTACKS', "attaque");
+define('TZ_RT_REINFORCEMENT', "renforce");
+define('TZ_RT_SCOUTS', "espionne");
+define('TZ_RT_SEND_RES_TO', "envoie des ressources à");
+define('TZ_RT_WAS_ATTACKED', "a été attaqué");
+define('TZ_RT_REINF_IN', "Renfort dans");
+define('TZ_RT_ELDERS_REINF', "renfort du village des anciens");
+define('TZ_RT_UNOCC_OASIS', "Oasis inoccupée");
+
 ?>

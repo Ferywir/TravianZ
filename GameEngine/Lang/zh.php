@@ -2309,3 +2309,13 @@ define('TZ_RPT_WON_SCOUT_ATK', "作为攻击方侦察成功");
 define('TZ_RPT_LOST_SCOUT_ATK', "作为攻击方侦察失败");
 define('TZ_RPT_WON_SCOUT_DEF', "作为防御方侦察成功");
 define('TZ_RPT_LOST_SCOUT_DEF', "作为防御方侦察失败");
+
+// ===== report topic connectors (display-time localization) =====
+define('TZ_RT_ATTACKS', "攻击");
+define('TZ_RT_REINFORCEMENT', "增援");
+define('TZ_RT_SCOUTS', "侦察");
+define('TZ_RT_SEND_RES_TO', "运送资源至");
+define('TZ_RT_WAS_ATTACKED', "遭到攻击");
+define('TZ_RT_REINF_IN', "增援于");
+define('TZ_RT_ELDERS_REINF', "长老村增援");
+define('TZ_RT_UNOCC_OASIS', "无人占领的绿洲");
