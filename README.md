@@ -118,8 +118,8 @@ define("IP_TRUSTED_PROXIES", "");
 **2. Behind a reverse proxy** (Nginx, Nginx Proxy Manager / NPMplus, Traefik, Caddy, …):
 
 ```php
-// your proxy's address, or a CIDR (e.g. 172.16.0.0/12 for a Docker bridge network)
-define("IP_TRUSTED_PROXIES", "192.168.1.2");
+// your proxy's address, or a CIDR (e.g. 10.0.0.0/8 / 172.16.0.0/12 for a Docker bridge network)
+define("IP_TRUSTED_PROXIES", "10.0.0.1");
 define("IP_FORWARDED_HEADER", "HTTP_X_FORWARDED_FOR");
 ```
 
