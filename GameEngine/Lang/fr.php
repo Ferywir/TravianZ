@@ -2306,4 +2306,25 @@ define('TZ_CONFIRM_DEMOLISH_COMPLETE_2', " pour 10 ORS ?\nLe bâtiment disparaî
 define('TZ_CONFIRM_LAST_EMBASSY_L3', "ATTENTION !\n\nVous êtes sur le point de démolir la dernière ambassade de niveau 3 !\n\nComme vous êtes le chef de votre alliance et qu'il ne reste aucun autre membre, l'alliance sera dissoute une fois la démolition terminée.");
 define('TZ_CONFIRM_LAST_EMBASSY_L1', "ATTENTION !\n\nVous êtes sur le point de démolir votre dernière ambassade !\n\nComme vous êtes dans une alliance, vous la quitterez automatiquement une fois la démolition terminée.");
 
+define('TZ_TRADE', "Commerce");
+
+// ===== reports section (noticeClass tooltips) =====
+define('TZ_RPT_SCOUT', "Rapport d'éclaireur");
+define('TZ_RPT_WON_ATK_NOLOSS', "Gagné en attaquant sans pertes");
+define('TZ_RPT_WON_ATK_LOSS', "Gagné en attaquant avec pertes");
+define('TZ_RPT_LOST_ATK_LOSS', "Perdu en attaquant avec pertes");
+define('TZ_RPT_WON_DEF_NOLOSS', "Gagné en défendant sans pertes");
+define('TZ_RPT_WON_DEF_LOSS', "Gagné en défendant avec pertes");
+define('TZ_RPT_LOST_DEF_LOSS', "Perdu en défendant avec pertes");
+define('TZ_RPT_LOST_DEF_NOLOSS', "Perdu en défendant sans pertes");
+define('TZ_RPT_REINF_ARRIVED', "Renfort arrivé");
+define('TZ_RPT_WOOD_DELIVERED', "Bois livré");
+define('TZ_RPT_CLAY_DELIVERED', "Argile livrée");
+define('TZ_RPT_IRON_DELIVERED', "Fer livré");
+define('TZ_RPT_CROP_DELIVERED', "Céréales livrées");
+define('TZ_RPT_WON_SCOUT_ATK', "Espionnage réussi en attaquant");
+define('TZ_RPT_LOST_SCOUT_ATK', "Espionnage échoué en attaquant");
+define('TZ_RPT_WON_SCOUT_DEF', "Espionnage réussi en défendant");
+define('TZ_RPT_LOST_SCOUT_DEF', "Espionnage échoué en défendant");
+
 ?>

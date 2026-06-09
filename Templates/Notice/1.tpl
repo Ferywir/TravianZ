@@ -74,7 +74,7 @@ if ($database->isVillageOases($dataarray[29])) {
 <table cellpadding="1" cellspacing="1" id="report_surround">
 <thead>
 <tr>
-    <th>Subject:</th>
+    <th><?php echo SUBJECT; ?>:</th>
     <th><?php echo $message->readingNotice['topic']; ?></th>
 </tr>
 <tr>
@@ -93,7 +93,7 @@ if ($database->isVillageOases($dataarray[29])) {
 <tr>
     <td class="role"><?php echo ATTACKER; ?></td>
     <td colspan="<?php echo $colspan ?>">
-        <?php echo $user_url; ?> <?php echo $from_url ? 'from the village '.$from_url : ''; ?>
+        <?php echo $user_url; ?> <?php echo $from_url ? FROM_THE_VILL.' '.$from_url : ''; ?>
     </td>
 </tr>
 </thead>
@@ -291,7 +291,7 @@ foreach ($defArray as $index => $value) {
 <tr>
 <td class="role"><?php echo DEFENDER; ?></td>
 <td colspan="<?php echo (!empty($dataarray[$heroIndex])) ? 11 : 10; ?>">
-<?php echo ($index == 0) ? $defuser_url." from the village ".$deffrom_url : "Reinforcement"; ?>
+<?php echo ($index == 0) ? $defuser_url." ".FROM_THE_VILL." ".$deffrom_url : REINFORCEMENT; ?>
 </td>
 </tr>
 </thead>

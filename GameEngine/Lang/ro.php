@@ -2296,3 +2296,23 @@ define('TZ_CONFIRM_DEMOLISH_COMPLETE_1', "Sigur vrei să demolezi COMPLET ");
 define('TZ_CONFIRM_DEMOLISH_COMPLETE_2', " pentru 10 AUR?\nClădirea va dispărea instantaneu, acțiunea nu poate fi anulată.");
 define('TZ_CONFIRM_LAST_EMBASSY_L3', "ATENȚIE!\n\nEști pe cale să demolezi ultima Ambasadă de nivel 3!\n\nDeoarece ești liderul alianței și nu mai există alți membri, alianța va fi desființată după finalizarea demolării.");
 define('TZ_CONFIRM_LAST_EMBASSY_L1', "ATENȚIE!\n\nEști pe cale să demolezi ultima ta Ambasadă!\n\nDeoarece faci parte dintr-o alianță, vei părăsi automat acea alianță după finalizarea demolării.");
+define('TZ_TRADE', "Comerț");
+
+// ===== reports section (noticeClass tooltips) =====
+define('TZ_RPT_SCOUT', "Raport de cercetare");
+define('TZ_RPT_WON_ATK_NOLOSS', "Câștigat ca atacator fără pierderi");
+define('TZ_RPT_WON_ATK_LOSS', "Câștigat ca atacator cu pierderi");
+define('TZ_RPT_LOST_ATK_LOSS', "Pierdut ca atacator cu pierderi");
+define('TZ_RPT_WON_DEF_NOLOSS', "Câștigat ca apărător fără pierderi");
+define('TZ_RPT_WON_DEF_LOSS', "Câștigat ca apărător cu pierderi");
+define('TZ_RPT_LOST_DEF_LOSS', "Pierdut ca apărător cu pierderi");
+define('TZ_RPT_LOST_DEF_NOLOSS', "Pierdut ca apărător fără pierderi");
+define('TZ_RPT_REINF_ARRIVED', "Întăriri sosite");
+define('TZ_RPT_WOOD_DELIVERED', "Lemn livrat");
+define('TZ_RPT_CLAY_DELIVERED', "Lut livrat");
+define('TZ_RPT_IRON_DELIVERED', "Fier livrat");
+define('TZ_RPT_CROP_DELIVERED', "Grâne livrate");
+define('TZ_RPT_WON_SCOUT_ATK', "Spionaj reușit ca atacator");
+define('TZ_RPT_LOST_SCOUT_ATK', "Spionaj eșuat ca atacator");
+define('TZ_RPT_WON_SCOUT_DEF', "Spionaj reușit ca apărător");
+define('TZ_RPT_LOST_SCOUT_DEF', "Spionaj eșuat ca apărător");

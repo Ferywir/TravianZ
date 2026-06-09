@@ -75,7 +75,7 @@ if ($database->isVillageOases($dataarray[29])) {
 <thead>
 
 <tr>
-    <th>Subject:</th>
+    <th><?php echo SUBJECT; ?>:</th>
     <th><?php echo $message->readingNotice['topic']; ?></th>
 </tr>
 
@@ -250,7 +250,7 @@ $troopsStart = ($target * 21) + 35;
 <tr>
 <td class="role"><?php echo DEFENDER; ?></td>
 <td colspan="<?php echo $colspan2; ?>">
-    <?php echo $defuser_url." from the village ".$deffrom_url; ?>
+    <?php echo $defuser_url." ".FROM_THE_VILL." ".$deffrom_url; ?>
 </td>
 </tr>
 </thead>

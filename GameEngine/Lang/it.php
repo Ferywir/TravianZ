@@ -1522,7 +1522,7 @@ define('ADDRESSBOOK', 'Addressbook');
 define('ADMIN1', 'Administrator');
 define('AND', 'and');
 define('ANSWER', 'Answer');
-define('ARCHIVE', 'Archive');
+define('ARCHIVE', "Archivio");
 define('ATTACKER', 'Attacker');
 define('ATT_W_M', 'Attackers of the Week');
 define('BACK', 'Back');
@@ -1545,7 +1545,7 @@ define('DIRECT_LINKS', 'Direct links');
 define('FETCH', 'fetch');
 define('FETCHED', 'fetched');
 define('FOR_GAME_SERVER', 'Whole game round');
-define('FROM_THE_VILL', 'from the village');
+define('FROM_THE_VILL', "dal villaggio");
 define('GENDER', 'Gender');
 define('GOLD_CLUB', 'Gold Club');
 define('GOLD_SHOP', 'Gold Shop');
@@ -1599,7 +1599,7 @@ define('RANK', 'Rank');
 define('RANKS', 'Ranks');
 define('RECIPIENT', 'Recipient');
 define('REPLY', 'Reply');
-define('REPORTS', 'Reports');
+define('REPORTS', "Rapporti");
 define('REPORT_FILTER', 'Report filter');
 define('RESOURCES_OVERVIEW', 'Resource overview');
 define('ROB_W_M', 'Robbers of the week');
@@ -1610,7 +1610,7 @@ define('SENT', 'Sent');
 define('SITTER_NAME', 'Name of the sitter');
 define('STATISTICS', 'Statistics');
 define('STATUS', 'Status');
-define('SUBJECT', 'Subject');
+define('SUBJECT', "Oggetto");
 define('TIME_ZONE_L1', 'Europe');
 define('TIME_ZONE_L2', 'UK');
 define('TIME_ZONE_L3', 'Turkey');
@@ -2191,4 +2191,26 @@ define('TZ_CONFIRM_DEMOLISH_COMPLETE_2', " per 10 ORO?\nL'edificio scomparirà i
 define('TZ_CONFIRM_LAST_EMBASSY_L3', "ATTENZIONE!\n\nStai per demolire l'ultima Ambasciata di livello 3!\n\nPoiché sei il leader della tua alleanza e non restano altri membri, l'alleanza verrà sciolta al termine della demolizione.");
 define('TZ_CONFIRM_LAST_EMBASSY_L1', "ATTENZIONE!\n\nStai per demolire la tua ultima Ambasciata!\n\nPoiché fai parte di un'alleanza, la lascerai automaticamente al termine della demolizione.");
 
+define('TZ_TRADE', "Commercio");
+
+// ===== reports section (noticeClass tooltips) =====
+define('TZ_RPT_SCOUT', "Rapporto di esplorazione");
+define('TZ_RPT_WON_ATK_NOLOSS', "Vinto come attaccante senza perdite");
+define('TZ_RPT_WON_ATK_LOSS', "Vinto come attaccante con perdite");
+define('TZ_RPT_LOST_ATK_LOSS', "Perso come attaccante con perdite");
+define('TZ_RPT_WON_DEF_NOLOSS', "Vinto come difensore senza perdite");
+define('TZ_RPT_WON_DEF_LOSS', "Vinto come difensore con perdite");
+define('TZ_RPT_LOST_DEF_LOSS', "Perso come difensore con perdite");
+define('TZ_RPT_LOST_DEF_NOLOSS', "Perso come difensore senza perdite");
+define('TZ_RPT_REINF_ARRIVED', "Rinforzi arrivati");
+define('TZ_RPT_WOOD_DELIVERED', "Legno consegnato");
+define('TZ_RPT_CLAY_DELIVERED', "Argilla consegnata");
+define('TZ_RPT_IRON_DELIVERED', "Ferro consegnato");
+define('TZ_RPT_CROP_DELIVERED', "Grano consegnato");
+define('TZ_RPT_WON_SCOUT_ATK', "Spionaggio riuscito come attaccante");
+define('TZ_RPT_LOST_SCOUT_ATK', "Spionaggio fallito come attaccante");
+define('TZ_RPT_WON_SCOUT_DEF', "Spionaggio riuscito come difensore");
+define('TZ_RPT_LOST_SCOUT_DEF', "Spionaggio fallito come difensore");
+
+define('NO_REPORTS', "Non ci sono rapporti disponibili");
 ?>

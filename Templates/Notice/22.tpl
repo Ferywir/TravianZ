@@ -41,7 +41,7 @@ if ($type == 1) {
 <thead>
 
 <tr>
-    <th>Subject:</th>
+    <th><?php echo SUBJECT; ?>:</th>
     <th><?php echo $message->readingNotice['topic']; ?></th>
 </tr>
 
@@ -69,7 +69,7 @@ if ($type == 1) {
             <?php echo $attackerName; ?>
         </a>
 
-        from the village
+        <?php echo FROM_THE_VILL; ?>
 
         <a href="karte.php?d=<?php echo $dataarray[1]."&amp;c=".$generator->getMapCheck($dataarray[1]); ?>">
             <?php echo $database->getVillageField($dataarray[1], "name"); ?>

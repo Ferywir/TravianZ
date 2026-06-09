@@ -54,7 +54,7 @@ if ($fromName != "[?]") {
 <thead>
 
 <tr>
-    <th>Subject:</th>
+    <th><?php echo SUBJECT; ?>:</th>
     <th><?php echo $message->readingNotice['topic']; ?></th>
 </tr>
 

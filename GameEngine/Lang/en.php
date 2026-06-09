@@ -2302,3 +2302,23 @@ tz_def('TZ_CONFIRM_DEMOLISH_COMPLETE_1', "Surely you want to demolish COMPLETELY
 tz_def('TZ_CONFIRM_DEMOLISH_COMPLETE_2', " for 10 GOLD?\nThe building will disappear instantly, it cannot be undone.");
 tz_def('TZ_CONFIRM_LAST_EMBASSY_L3', "WARNING!\n\nYou are about to demolish the last lvl3 Embassy!\n\nSince you are the leader of your alliance and because there are no additional members left, the alliance will be disbanded once the demolition completes.");
 tz_def('TZ_CONFIRM_LAST_EMBASSY_L1', "WARNING!\n\nYou are about to demolish your last Embassy!\n\nSince you are in an alliance, you will automatically quit that alliance once the demolition completes.");
+tz_def('TZ_TRADE', "Trade");
+
+// ===== reports section (noticeClass tooltips) =====
+tz_def('TZ_RPT_SCOUT', "Scout Report");
+tz_def('TZ_RPT_WON_ATK_NOLOSS', "Won as attacker without losses");
+tz_def('TZ_RPT_WON_ATK_LOSS', "Won as attacker with losses");
+tz_def('TZ_RPT_LOST_ATK_LOSS', "Lost as attacker with losses");
+tz_def('TZ_RPT_WON_DEF_NOLOSS', "Won as defender without losses");
+tz_def('TZ_RPT_WON_DEF_LOSS', "Won as defender with losses");
+tz_def('TZ_RPT_LOST_DEF_LOSS', "Lost as defender with losses");
+tz_def('TZ_RPT_LOST_DEF_NOLOSS', "Lost as defender without losses");
+tz_def('TZ_RPT_REINF_ARRIVED', "Reinforcement arrived");
+tz_def('TZ_RPT_WOOD_DELIVERED', "Wood Delivered");
+tz_def('TZ_RPT_CLAY_DELIVERED', "Clay Delivered");
+tz_def('TZ_RPT_IRON_DELIVERED', "Iron Delivered");
+tz_def('TZ_RPT_CROP_DELIVERED', "Crop Delivered");
+tz_def('TZ_RPT_WON_SCOUT_ATK', "Won scouting as attacker");
+tz_def('TZ_RPT_LOST_SCOUT_ATK', "Lost scouting as attacker");
+tz_def('TZ_RPT_WON_SCOUT_DEF', "Won scouting as defender");
+tz_def('TZ_RPT_LOST_SCOUT_DEF', "Lost scouting as defender");
