@@ -172,7 +172,7 @@ function __construct() {
             $database->updateUserField($user_sanitized, "sessid", $_SESSION['sessid'], 0);
         }
 
-        $logging->addLoginLog($dbarray['id'], $_SERVER['REMOTE_ADDR']);
+        $logging->addLoginLog($dbarray['id'], \App\Utils\IpResolver::getClientIp() ?? ($_SERVER['REMOTE_ADDR'] ?? '0.0.0.0'));
 
         if ($dbarray['id'] == 1) {
             header("Location: nachrichten.php");

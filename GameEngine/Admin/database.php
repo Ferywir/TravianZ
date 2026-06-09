@@ -92,15 +92,17 @@ class adm_DB {
         }
 
         $username = htmlspecialchars($username);
+        // proxy-aware (issue #185): log the real client IP behind a trusted reverse proxy
+        $realIp = \App\Utils\IpResolver::getClientIp() ?? ($_SERVER['REMOTE_ADDR'] ?? '0.0.0.0');
         if ($pwOk) {
             // upgrade la bcrypt dacă e necesar
             if (!$dbarray['is_bcrypt'] &&!$bcrypted) {
                 mysqli_query($this->connection, "UPDATE ". TB_PREFIX. "users SET password = '". password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]). "'". ($bcrypt_update_done? ", is_bcrypt = 1" : ""). " WHERE id = ". (int)$dbarray['id']);
             }
-            mysqli_query($this->connection, "INSERT INTO ". TB_PREFIX. "admin_log VALUES (0,'X','$username logged in (IP: <b>". $_SERVER['REMOTE_ADDR']. "</b>)',". time(). ")");
+            mysqli_query($this->connection, "INSERT INTO ". TB_PREFIX. "admin_log VALUES (0,'X','$username logged in (IP: <b>". $realIp. "</b>)',". time(). ")");
             return true;
         } else {
-            mysqli_query($this->connection, "INSERT INTO ". TB_PREFIX. "admin_log VALUES (0,'X','<font color=\'red\'><b>IP: ". $_SERVER['REMOTE_ADDR']. " tried to log in with username <u> $username</u> but access was denied!</font></b>',". time(). ")");
+            mysqli_query($this->connection, "INSERT INTO ". TB_PREFIX. "admin_log VALUES (0,'X','<font color=\'red\'><b>IP: ". $realIp. " tried to log in with username <u> $username</u> but access was denied!</font></b>',". time(). ")");
             return false;
         }
     }
@@ -317,7 +319,9 @@ class adm_DB {
         $dbarray = mysqli_fetch_array($result);
 
         if (!$dbarray) {
-            mysqli_query($this->connection, "INSERT INTO ". TB_PREFIX. "admin_log VALUES (0,'X','<font color=\'red\'><b>IP: ". $_SERVER['REMOTE_ADDR']. " tried to log in with uid $uid but access was denied!</font></b>',". time(). ")");
+            // proxy-aware (issue #185)
+            $realIp = \App\Utils\IpResolver::getClientIp() ?? ($_SERVER['REMOTE_ADDR'] ?? '0.0.0.0');
+            mysqli_query($this->connection, "INSERT INTO ". TB_PREFIX. "admin_log VALUES (0,'X','<font color=\'red\'><b>IP: ". $realIp. " tried to log in with uid $uid but access was denied!</font></b>',". time(). ")");
             return false;
         }
 
