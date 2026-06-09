@@ -107,6 +107,13 @@ function __construct() {
         $this->access = $this->logged_in ? $database->getUserField($this->uid, "access", 1) : 0;
     }
 
+    // === IP BAN ENFORCEMENT (issue #185) - DUPA ce avem access ===
+    // Admins / Multihunters are never blocked by an IP ban (avoid self-lockout).
+    // The admin panel (Admin/admin.php) does not bootstrap Session, so it stays reachable.
+    if ((int)$this->access < (defined('MULTIHUNTER') ? MULTIHUNTER : 8)) {
+        \App\Utils\IpResolver::enforce($database);
+    }
+
     // === MAINTENANCE CHECK - DUPA ce avem access ===
     $maint = $database->getMaintenance();
     if($maint['active'] == 1 && $this->access < 9) {
