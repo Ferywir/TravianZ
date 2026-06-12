@@ -255,6 +255,43 @@ class MyGenerator
 	}
 
 	/**
+	 * Resolve the current player's timezone preference (issue #198), shared by
+	 * the "local time" header clock helpers below.
+	 */
+	private function currentPlayerZone()
+	{
+		global $session;
+
+		$tzPref = (isset($session) && isset($session->userinfo['timezone']))
+			? $session->userinfo['timezone'] : null;
+
+		return $this->resolveUserTimeZone($tzPref);
+	}
+
+	/**
+	 * Current UTC offset (in seconds, DST-aware) of the player's timezone.
+	 * Feeds the live "local time" clock in the page header (issue #198).
+	 *
+	 * @return int
+	 */
+	public function userTimeZoneOffset()
+	{
+		return (new DateTime('now', $this->currentPlayerZone()))->getOffset();
+	}
+
+	/**
+	 * Current wall-clock time in the player's timezone (issue #198), used as the
+	 * initial value of the live "local time" header clock.
+	 *
+	 * @param string $format
+	 * @return string
+	 */
+	public function userLocalTime($format = 'H:i:s')
+	{
+		return (new DateTime('now', $this->currentPlayerZone()))->format($format);
+	}
+
+	/**
 	 * Convert map coordinates to base ID
 	 */
 	public function getBaseID($x, $y)

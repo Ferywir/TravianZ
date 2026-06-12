@@ -343,6 +343,26 @@ include("Templates/res.tpl");
                 <?php echo date('H:i:s'); ?>
             </span>
 
+            <br />
+
+            <?php echo LOCAL_TIME; ?>
+
+            <span id="localTime" class="b"><?php echo $generator->userLocalTime(); ?></span>
+
+            <script>
+            (function () {
+                var off = <?php echo (int) $generator->userTimeZoneOffset(); ?> * 1000;
+                var el = document.getElementById('localTime');
+                function p(n) { return n < 10 ? '0' + n : n; }
+                function tick() {
+                    var d = new Date(Date.now() + off);
+                    el.innerHTML = p(d.getUTCHours()) + ':' + p(d.getUTCMinutes()) + ':' + p(d.getUTCSeconds());
+                }
+                tick();
+                setInterval(tick, 1000);
+            })();
+            </script>
+
         </div>
 
     </div>
