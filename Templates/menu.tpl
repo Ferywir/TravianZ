@@ -244,6 +244,39 @@ $idUser      = isset($_SESSION['id_user']) ? (int)$_SESSION['id_user'] : 0;
 
 <?php
 /**
+ * Live "local time" clock (issue #198): show a second clock next to the
+ * server-time one, ticking in the player's chosen timezone. The server-time
+ * block lives in each page's own footer (rendered after this menu), so we wait
+ * for the DOM and target the last #tp1 (the visible one). Vanilla JS, driven by
+ * Date.now() + the player's UTC offset, so it is independent of the browser
+ * timezone and does not touch the unx.js tp+i counters (arrival timers).
+ */
+?>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var anchors = document.querySelectorAll('#tp1');
+    if (!anchors.length) return;
+    var tp = anchors[anchors.length - 1];
+    var off = <?php echo (int) $generator->userTimeZoneOffset(); ?> * 1000;
+    var label = <?php echo json_encode(LOCAL_TIME); ?>;
+    var sp = document.createElement('span');
+    sp.className = 'b';
+    var parent = tp.parentNode, next = tp.nextSibling;
+    parent.insertBefore(document.createElement('br'), next);
+    parent.insertBefore(document.createTextNode(' ' + label + ' '), next);
+    parent.insertBefore(sp, next);
+    function p(n) { return n < 10 ? '0' + n : n; }
+    function tick() {
+        var d = new Date(Date.now() + off);
+        sp.innerHTML = p(d.getUTCHours()) + ':' + p(d.getUTCMinutes()) + ':' + p(d.getUTCSeconds());
+    }
+    tick();
+    setInterval(tick, 1000);
+});
+</script>
+
+<?php
+/**
  * Announcement screen
  */
 if($sessionOk) {
@@ -342,26 +375,6 @@ include("Templates/res.tpl");
             <span id="tp1" class="b">
                 <?php echo date('H:i:s'); ?>
             </span>
-
-            <br />
-
-            <?php echo LOCAL_TIME; ?>
-
-            <span id="localTime" class="b"><?php echo $generator->userLocalTime(); ?></span>
-
-            <script>
-            (function () {
-                var off = <?php echo (int) $generator->userTimeZoneOffset(); ?> * 1000;
-                var el = document.getElementById('localTime');
-                function p(n) { return n < 10 ? '0' + n : n; }
-                function tick() {
-                    var d = new Date(Date.now() + off);
-                    el.innerHTML = p(d.getUTCHours()) + ':' + p(d.getUTCMinutes()) + ':' + p(d.getUTCSeconds());
-                }
-                tick();
-                setInterval(tick, 1000);
-            })();
-            </script>
 
         </div>
 

@@ -280,18 +280,6 @@ class MyGenerator
 	}
 
 	/**
-	 * Current wall-clock time in the player's timezone (issue #198), used as the
-	 * initial value of the live "local time" header clock.
-	 *
-	 * @param string $format
-	 * @return string
-	 */
-	public function userLocalTime($format = 'H:i:s')
-	{
-		return (new DateTime('now', $this->currentPlayerZone()))->format($format);
-	}
-
-	/**
 	 * Convert map coordinates to base ID
 	 */
 	public function getBaseID($x, $y)
