@@ -290,7 +290,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (box) {
         box.style.height = 'auto';
         var top = parseInt(window.getComputedStyle(box).top, 10);
-        if (!isNaN(top)) box.style.top = (top - 16) + 'px';
+        if (!isNaN(top)) box.style.top = (top - 8) + 'px';
     }
 
     function p(n) { return n < 10 ? '0' + n : n; }
