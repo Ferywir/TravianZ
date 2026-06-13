@@ -8,9 +8,23 @@ if ($session->gold <= 2) {
 }
 
 $level = (int)$village->resarray['f'.$id];
-$totalRes = floor($village->awood + $village->aclay + $village->airon + $village->acrop);
-$maxstore = (int)$village->maxstore;
-$maxcrop = (int)$village->maxcrop;
+
+// Defensive: a resource computed as NaN/INF (PHP float) would be echoed as
+// "NAN"/"INF" into org4/summe and lock the NPC distribution on "Rest: NaN"
+// (issue #211). Coerce every value the template/JS relies on to a valid,
+// non-negative integer before it reaches the page.
+$resSafe = static function ($v) {
+    $v = (float) $v;
+    return (is_finite($v) && $v > 0) ? (int) floor($v) : 0;
+};
+$awood = $resSafe($village->awood);
+$aclay = $resSafe($village->aclay);
+$airon = $resSafe($village->airon);
+$acrop = $resSafe($village->acrop);
+
+$totalRes = $awood + $aclay + $airon + $acrop;
+$maxstore = max(0, (int)$village->maxstore);
+$maxcrop  = max(0, (int)$village->maxcrop);
 
 // valori prefill din GET
 $r = [];
@@ -94,10 +108,10 @@ $completed = isset($_GET['c']);
                     <tr><th colspan="5"><?php echo NPC_TRADE;?></th></tr>
                     <tr>
                         <?php $resData = [
-                            ['wood', $village->awood, 'r1', LUMBER],
-                            ['clay', $village->aclay, 'r2', CLAY],
-                            ['iron', $village->airon, 'r3', IRON],
-                            ['crop', $village->acrop, 'r4', CROP],
+                            ['wood', $awood, 'r1', LUMBER],
+                            ['clay', $aclay, 'r2', CLAY],
+                            ['iron', $airon, 'r3', IRON],
+                            ['crop', $acrop, 'r4', CROP],
                         ];
                         foreach ($resData as $idx => $rd):?>
                         <td class="all">
