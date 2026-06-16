@@ -438,6 +438,49 @@ class MYSQLi_DB implements IDbConnection {
     }
     // === END REFACTOR v2 ===
 
+    // === A.0 BATTLE PERF PROBE (TEMPORARY — issue #155 Phase A measurement) ====
+    // Counts only the REAL DB cache-MISSES of the candidate per-attack getters
+    // while the battle loop is being processed. Every probed getter calls
+    // $this->battleProbe(__FUNCTION__, $key) right before its real mysqli_query,
+    // so a cache HIT (early return) is never counted. To be reverted before A.1.
+    /** @var bool Whether the per-attack battle loop probe is currently active. */
+    private static $battleProbeActive = false;
+    /** @var array<string,int> Per-getter cache-MISS counts during the probed loop. */
+    private static $battleProbeLog = [];
+
+    /** Start counting real DB cache-misses for the probed battle getters. */
+    public function startBattleProbe(): void {
+        self::$battleProbeActive = true;
+        self::$battleProbeLog = [];
+    }
+
+    /** Record one real DB query (cache MISS) for a probed getter, if active. */
+    private function battleProbe(string $method, $key): void {
+        if (!self::$battleProbeActive) return;
+        $tag = is_array($key) ? ('batch:' . count($key)) : (string) $key;
+        $label = $method . '(' . $tag . ')';
+        self::$battleProbeLog[$label] = (self::$battleProbeLog[$label] ?? 0) + 1;
+    }
+
+    /** Stop the probe and return a human-readable cache-MISS summary. */
+    public function dumpBattleProbe(): string {
+        self::$battleProbeActive = false;
+        $total = array_sum(self::$battleProbeLog);
+        $out  = "=== [A.0] battle per-attack DB cache-MISS probe — " . date('Y-m-d H:i:s') . " ===\n";
+        $out .= "total real queries from probed getters during the loop: $total\n";
+        if (!self::$battleProbeLog) {
+            $out .= "(every probed getter was served from cache)\n";
+        } else {
+            arsort(self::$battleProbeLog);
+            foreach (self::$battleProbeLog as $k => $n) {
+                $out .= sprintf("  %4d  %s\n", $n, $k);
+            }
+        }
+        $out .= str_repeat('-', 64) . "\n";
+        return $out;
+    }
+    // === END A.0 BATTLE PERF PROBE ===
+
 
 	/**
 	 *
@@ -1973,6 +2016,7 @@ class MYSQLi_DB implements IDbConnection {
                     break;
         }
 
+		$this->battleProbe(__FUNCTION__, $vid); // [A.0 probe]
 		$result = mysqli_query($this->dblink,$q);
 
         self::$villageFieldsCache[$vid.$mode] = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -2203,6 +2247,7 @@ class MYSQLi_DB implements IDbConnection {
             return $cachedValue;
         }
 
+		$this->battleProbe(__FUNCTION__, $vid); // [A.0 probe]
 		$q = "SELECT * FROM " . TB_PREFIX . "odata where wref = $vid LIMIT 1";
 		$result = mysqli_query($this->dblink,$q);
 
@@ -2220,6 +2265,7 @@ class MYSQLi_DB implements IDbConnection {
         }
 
 		$q = "SELECT * FROM " . TB_PREFIX . "wdata left JOIN " . TB_PREFIX . "vdata ON " . TB_PREFIX . "vdata.wref = " . TB_PREFIX . "wdata.id where " . TB_PREFIX . "wdata.id = $id LIMIT 1";
+		$this->battleProbe(__FUNCTION__, $id); // [A.0 probe]
 		$result = mysqli_query($this->dblink,$q);
 
         self::$worldAndVillageDataCache[$id] = mysqli_fetch_array($result);
@@ -2236,6 +2282,7 @@ class MYSQLi_DB implements IDbConnection {
         }
 
 		$q = "SELECT * FROM " . TB_PREFIX . "wdata left JOIN " . TB_PREFIX . "odata ON " . TB_PREFIX . "odata.wref = " . TB_PREFIX . "wdata.id where " . TB_PREFIX . "wdata.id = $id LIMIT 1";
+		$this->battleProbe(__FUNCTION__, $id); // [A.0 probe]
 		$result = mysqli_query($this->dblink,$q);
 
         self::$worldAndOasisDataCache[$id] = mysqli_fetch_array($result);
@@ -3699,6 +3746,7 @@ class MYSQLi_DB implements IDbConnection {
         // please don't scream...
         // with the current table structure, there really IS NOT another way
         // (except for stored procedures, which we can't rely on to be allowed on the server)
+        $this->battleProbe(__FUNCTION__, $vid . ':' . $fieldType); // [A.0 probe]
         $result = mysqli_query($this->dblink, 'SELECT '.
          'CASE '.
            'WHEN `f1t` IN ('.$fieldType.') THEN `f1` '.
@@ -3807,6 +3855,7 @@ class MYSQLi_DB implements IDbConnection {
             return $cachedValue;
         }
 
+		$this->battleProbe(__FUNCTION__, $vid . ':f' . $field); // [A.0 probe]
 		$q = "SELECT f" . $field . " from " . TB_PREFIX . "fdata where vref = $vid LIMIT 1";
 		$result = mysqli_query($this->dblink,$q);
         $row = $result ? mysqli_fetch_array($result, MYSQLI_ASSOC) : null;
@@ -5756,6 +5805,7 @@ $q = "INSERT INTO ".TB_PREFIX."demolition VALUES (
 				return [];
 		}
 
+		$this->battleProbe(__FUNCTION__, $type . ':' . ($array_passed ? 'batch:' . count($village) : $village[0])); // [A.0 probe]
 		$result = $this->mysqli_fetch_all(mysqli_query($this->dblink,$q));
 
         // return a single value
@@ -6077,6 +6127,7 @@ $q = "INSERT INTO ".TB_PREFIX."demolition VALUES (
             }
         }
 
+		$this->battleProbe(__FUNCTION__, $array_passed ? $vid : ($vid[0] ?? 'n/a')); // [A.0 probe]
 		$q = "SELECT * from " . TB_PREFIX . "units where vref IN(".implode(', ', $vid).")";
 		$result = mysqli_query($this->dblink,$q);
 		$resCount = 0;
@@ -6281,6 +6332,7 @@ $q = "INSERT INTO ".TB_PREFIX."demolition VALUES (
             return $cachedValue;
         }
 
+		$this->battleProbe(__FUNCTION__, $array_passed ? $vid : ($vid[0] ?? 'n/a')); // [A.0 probe]
 		$q = "SELECT * FROM " . TB_PREFIX . "abdata where vref IN(".implode(', ', $vid).")";
 		$result = $this->mysqli_fetch_all(mysqli_query($this->dblink,$q));
 
@@ -6793,6 +6845,7 @@ $q = "INSERT INTO ".TB_PREFIX."demolition VALUES (
         } else if ($mode == 4) {
             $q = "SELECT e.*, v.owner as ownerv, v1.owner as owner1 FROM ".TB_PREFIX."enforcement as e LEFT JOIN ".TB_PREFIX."vdata as v ON e.from=v.wref LEFT JOIN ".TB_PREFIX."vdata as v1 ON e.vref=v1.wref where e.vref IN(".implode(', ', $id).") AND v.owner=v1.owner";
         }
+		$this->battleProbe(__FUNCTION__, ($array_passed ? 'batch:' . count($id) : $id[0]) . '|mode' . $mode); // [A.0 probe]
 		$result = $this->mysqli_fetch_all(mysqli_query($this->dblink,$q));
 
         // return a single value

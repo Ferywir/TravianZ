@@ -2911,6 +2911,8 @@ class Automation {
             // cache instead of querying row by row
             $this->preloadBattleData($dataarray);
 
+            $database->startBattleProbe(); // [A.0 probe — temporary, issue #155 Phase A]
+
             // calculate battles
             foreach($dataarray as $data) {
                 //set base things
@@ -3431,6 +3433,10 @@ class Automation {
                 #################################################
 
             }
+
+            // [A.0 probe — temporary, issue #155 Phase A] dump the per-attack
+            // cache-MISS summary once, after the whole battle loop has run.
+            @file_put_contents(__DIR__ . '/../var/log/battle-probe.log', $database->dumpBattleProbe(), FILE_APPEND);
         }
     }
 
