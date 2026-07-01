@@ -3,16 +3,21 @@
 #################################################################################
 ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
 ## --------------------------------------------------------------------------- ##
-##  Project:       TravianZ                                                    ##
-##  Version:       30.04.2026                                                   ##
-##  Filename       Alliance.php                                                ##
-##  Developed by:  Dzoki                                                       ##
-##  Refactored by: Shadow (cata7007@gmail.com)                                 ##
-##  License:       TravianZ Project                                            ##
-##  Copyright:     TravianZ (c) 2010-2026. All rights reserved.                ##
-##  URLs:          https://travianz.org                                        ##
-##                 https://github.com/Shadowss/TravianZ                        ##
-##                                                                             ##
+##  Filename       : Alliance.php                      	                       ##
+##  Type           : Alliance System Backend                                   ##
+## --------------------------------------------------------------------------- ##
+##  Developed by   : Dzoki           			                               ##
+##  Refactored by  : Shadow & Ferywir									       ##
+##  Thanks to      : ronix, InCube, Akakori, Elmar & Kirilloid                 ##
+## --------------------------------------------------------------------------- ##
+##  Contact        : cata7007@gmail.com                                        ##
+##  Project        : TravianZ                                                  ##
+##  URLs:          : https://travianz.org                                      ##
+##  GitHub         : https://github.com/Shadowss/TravianZ                      ##
+## --------------------------------------------------------------------------- ##
+##  License        : TravianZ Project                                          ##
+##  Copyright      : TravianZ (c) 2010-2026. All rights reserved.              ##
+## --------------------------------------------------------------------------- ##
 #################################################################################
 
 use App\Entity\User;
@@ -398,6 +403,12 @@ class Alliance {
         }
         $maxMembers = $bid18[$building->getTypeLevel(18)]['attri'];
         $aid = $database->createAlliance($tag, $name, $session->uid, $maxMembers);
+		
+		// Milestone: first alliance ever founded on the server.
+        if (defined('NEW_FUNCTIONS_MILESTONES') && NEW_FUNCTIONS_MILESTONES) {
+            $database->recordMilestoneIfFirst('first_alliance', $session->uid, 0, $tag . ' - ' . $name);
+        }
+		
         $database->updateUserField($session->uid, "alliance", $aid, 1);
         $database->procAllyPop($aid);
         $database->createAlliPermissions($session->uid, $aid, 'Alliance founder', '1', '1', '1', '1', '1', '1', '1', '1');
